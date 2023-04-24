@@ -21,22 +21,18 @@ public class UserDaoImp implements UserDao {
 
       sessionFactory.getCurrentSession().save(user);
    }
+   @Override
    public void add1(Car car) {
 
       sessionFactory.getCurrentSession().save(car);
    }
-
-   public List select(String model, int series) {
-      String hql="select c.id from Car c where model=:model and series=:series";
-
+   @Override
+   public List selectUser(String model, int series) {
+      String hql = "SELECT c.id FROM Car as c WHERE c.model = :model and c.series = :series";
       Query query = sessionFactory.createEntityManager().createQuery(hql);
       query.setParameter("model",model);
       query.setParameter("series",series);
-      String hql1="from User where id=:id";
-      Query query1 = sessionFactory.createEntityManager().createQuery(hql1);
-      query1.setParameter("id",query.getResultList());
-
-      return query1.getResultList();
+      return query.getResultList();
    }
    @Override
    @SuppressWarnings("unchecked")

@@ -9,6 +9,6 @@ public interface UserService {
     void add(User user);
     List<User> listUsers();
     void add1(Car car);
-    List<User> select(String model, int series);
+    List<User> selectUser(String model, int series);
 
 }
