@@ -20,10 +20,10 @@ public class MainApp {
       Car car2 = new Car("Car2",002);
       Car car3 = new Car("Car3",003);
       Car car4 = new Car("Car4",004);
-      userService.add1(car1);
-      userService.add1(car2);
-      userService.add1(car3);
-      userService.add1(car4);
+      userService.addCar(car1);
+      userService.addCar(car2);
+      userService.addCar(car3);
+      userService.addCar(car4);
 
       userService.add(new User("User1", "Lastname1", "user1@mail.ru",car3));
       userService.add(new User("User2", "Lastname2", "user2@mail.ru",car4));
@@ -38,15 +38,8 @@ public class MainApp {
          System.out.println("Email = "+user.getEmail());
          System.out.println("Car_id = "+user.getCar());
       }
+      System.out.println(userService.getUserByCar("Car3", 003));
 
-      List<User> users1 = userService.listUsers();
-      for (User user : users1) {
-         System.out.println("Id = "+user.getId());
-         System.out.println("First Name = "+user.getFirstName());
-         System.out.println("Last Name = "+user.getLastName());
-         System.out.println("Email = "+user.getEmail());
-         System.out.println("Car_id = "+user.getCar());
-      }
       context.close();
    }
 }
